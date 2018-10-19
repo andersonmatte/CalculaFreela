@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_valorHora"
+        android:title="@string/valorHora"
+        android:icon="@drawable/baseline_access_time_black_18dp" />
+
+    <item
+        android:id="@+id/menu_meusProjetos"
+        android:title="@string/meusProjetos"
+        android:icon="@drawable/outline_folder_shared_black_18dp" />
+
+    <item
+        android:id="@+id/menu_sobre"
+        android:title="@string/sobre"
+        android:icon="@drawable/outline_info_black_18dp" />
+
+</menu>

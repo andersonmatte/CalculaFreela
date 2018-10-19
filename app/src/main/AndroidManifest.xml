@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.andersonmatte.calculafreela">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".atividade.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".atividade.HomeActivity" />
+        <activity
+            android:name=".atividade.SobreActivity"
+            android:parentActivityName=".atividade.HomeActivity" />
+        <activity
+            android:name=".atividade.ValorHoraActivity"
+            android:parentActivityName=".atividade.HomeActivity" />
+        <activity
+            android:name=".atividade.MeusProjetosActivity"
+            android:parentActivityName=".atividade.HomeActivity" />
+        <activity
+            android:name=".atividade.projeto.NovoProjetoActivity"
+            android:label="@string/meusProjetos"
+            android:parentActivityName=".atividade.MeusProjetosActivity" />
+        <activity
+            android:name=".atividade.projeto.Projeto1Activity"
+            android:parentActivityName=".atividade.MeusProjetosActivity" />
+        <activity
+            android:name=".atividade.projeto.Projeto2Activity"
+            android:parentActivityName=".atividade.projeto.Projeto1Activity" />
+        <activity
+            android:name=".atividade.projeto.Projeto3Activity"
+            android:parentActivityName=".atividade.projeto.Projeto2Activity" />
+        <activity
+            android:name=".atividade.projeto.Projeto4Activity"
+            android:parentActivityName=".atividade.projeto.Projeto3Activity" />
+    </application>
+
+</manifest>
