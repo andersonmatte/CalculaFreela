@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color5"
-    tools:context=".atividade.projeto.Projeto4Activity">
+    android:background="@color/color3"
+    tools:context=".atividade.projeto.Projeto3Activity">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="88dp"
-        android:text="@string/pergunta_10"
+        android:text="@string/pergunta_3"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -22,42 +22,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/valorEstimado"
+    <EditText
+        android:id="@+id/diasSemana"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="56dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="24dp"
+        android:background="@color/color3_1"
         android:ems="10"
-        android:hint="R$0,00"
-        android:textAlignment="center"
+        android:maxLength="1"
+        android:hint="@string/toque"
+        android:inputType="number"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.109" />
 
     <Button
-        android:id="@+id/botaoSalvarProjetoProjeto"
+        android:id="@+id/botaoDiasSemana"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="72dp"
         android:layout_marginStart="72dp"
         android:layout_marginTop="8dp"
-        android:background="@color/color5_1"
-        android:text="@string/btn_salvar"
+        android:background="@color/color3_1"
+        android:text="@string/btn_continuar"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valorEstimado"
+        app:layout_constraintTop_toBottomOf="@+id/diasSemana"
         app:layout_constraintVertical_bias="0.256" />
 
 </android.support.constraint.ConstraintLayout>

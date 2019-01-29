@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import br.com.andersonmatte.calculafreela.R;
 import br.com.andersonmatte.calculafreela.entidade.Projeto;
@@ -46,13 +48,17 @@ public class ProjetoAdapter extends ArrayAdapter<Projeto> {
             }
             tv_valorHora = (TextView) view.findViewById(R.id.tv_valorHora);
             if (listaProjetos.get(position).getValorHora() != null) {
-                tv_valorHora.setText(context.getResources().getString(R.string.projeto_4) + " " + listaProjetos.get(position).getValorHora().toString());
+                Locale ptBr = new Locale("pt", "BR");
+                String valorHoraString = NumberFormat.getCurrencyInstance(ptBr).format(listaProjetos.get(position).getValorHora());
+                tv_valorHora.setText(context.getResources().getString(R.string.projeto_4) + " " + valorHoraString);
             } else {
                 tv_valorHora.setText(context.getResources().getString(R.string.projeto_4) + " " + "0,00");
             }
             tv_totalProjeto = (TextView) view.findViewById(R.id.tv_totalProjeto);
             if (listaProjetos.get(position).getTotal() != null) {
-                tv_totalProjeto.setText(context.getResources().getString(R.string.projeto_5) + " " + listaProjetos.get(position).getTotal().toString());
+                Locale ptBr = new Locale("pt", "BR");
+                String valorTotalString = NumberFormat.getCurrencyInstance(ptBr).format(listaProjetos.get(position).getTotal());
+                tv_totalProjeto.setText(context.getResources().getString(R.string.projeto_5) + " " + valorTotalString);
             } else {
                 tv_totalProjeto.setText(context.getResources().getString(R.string.projeto_5) + " " + "0,00");
             }

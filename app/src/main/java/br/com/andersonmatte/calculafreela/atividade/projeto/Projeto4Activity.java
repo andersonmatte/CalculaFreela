@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import br.com.andersonmatte.calculafreela.R;
 import br.com.andersonmatte.calculafreela.atividade.MeusProjetosActivity;
 import br.com.andersonmatte.calculafreela.base.AppCompatActivityBase;
@@ -25,10 +28,13 @@ public class Projeto4Activity extends AppCompatActivityBase {
         if (bundle != null) {
             this.projetoRecebido = (Projeto) bundle.getSerializable("resultado");
         }
-        Double valorProjeto = this.calculaValorProjeto();
+        Double valorTotalProjeto = this.calculaValorProjeto();
+        Locale ptBr = new Locale("pt", "BR");
+        String valorProjetoString = NumberFormat.getCurrencyInstance(ptBr).format(valorTotalProjeto);
         valorEstimado = (TextView) findViewById(R.id.valorEstimado);
-        valorEstimado.setText(valorProjeto.toString());
-        Button botaoSalvarProjeto = (Button) findViewById(R.id.botaoSalvarProjeto);
+        valorEstimado.setText(valorProjetoString);
+        this.projetoRecebido.setTotal(valorTotalProjeto);
+        Button botaoSalvarProjeto = (Button) findViewById(R.id.botaoSalvarProjetoProjeto);
         botaoSalvarProjeto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +55,14 @@ public class Projeto4Activity extends AppCompatActivityBase {
         super.realm.commitTransaction();
         //Volta para a Lista de projetos.
         Intent intent = new Intent(Projeto4Activity.this, MeusProjetosActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, Projeto3Activity.class);
         startActivity(intent);
         finish();
     }

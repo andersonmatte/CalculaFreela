@@ -1,44 +1,40 @@
-package br.com.andersonmatte.calculafreela.atividade.projeto;
+package br.com.andersonmatte.calculafreela.atividade.valorHora;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.andersonmatte.calculafreela.R;
-import br.com.andersonmatte.calculafreela.base.AppCompatActivityBase;
-import br.com.andersonmatte.calculafreela.entidade.Projeto;
+import br.com.andersonmatte.calculafreela.atividade.HomeActivity;
+import br.com.andersonmatte.calculafreela.entidade.ValorHora;
 import es.dmoral.toasty.Toasty;
 
-public class Projeto1Activity extends AppCompatActivityBase {
+public class ValorHora1Activity extends AppCompatActivity {
 
-    private Projeto projetoRecebido;
     private EditText valorHora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_projeto1);
-        //Recebe os dados passados na Intent da Classe anterior por mecanismo de Bundle.
-        Bundle bundle = getIntent().getBundleExtra("projeto");
-        if (bundle != null) {
-            this.projetoRecebido = (Projeto) bundle.getSerializable("resultado");
-        }
+        setContentView(R.layout.activity_valor_hora1);
         valorHora = (EditText) findViewById(R.id.valorHora);
-        Button botaoValorHora = (Button) findViewById(R.id.botaoValorHoraProjeto);
+        Button botaoValorHora = (Button) findViewById(R.id.botaoValorHora);
         botaoValorHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validaForm()) {
-                    projetoRecebido.setValorHora(Double.parseDouble(valorHora.getText().toString()));
                     //prepara o objeto para passar para a próxima activity.
+                    ValorHora valorHoraObjeto = new ValorHora();
+                    valorHoraObjeto.setQuantoPorMes(Double.valueOf(valorHora.getText().toString()));
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("resultado", projetoRecebido);
+                    bundle.putSerializable("resultado", valorHoraObjeto);
                     //Chama a próxima Activity já com o objeto populado.
-                    Intent intentPerfil = new Intent(Projeto1Activity.this, Projeto2Activity.class);
-                    intentPerfil.putExtra("projeto", bundle);
+                    Intent intentPerfil = new Intent(ValorHora1Activity.this, ValorHora2Activity.class);
+                    intentPerfil.putExtra("valorHora", bundle);
                     startActivity(intentPerfil);
                 }
             }
@@ -51,9 +47,9 @@ public class Projeto1Activity extends AppCompatActivityBase {
             Toasty.warning(this, this.getResources().getString(R.string.validaForm1), Toast.LENGTH_SHORT, true).show();
             return false;
         } else if (valorHora.getText().toString() != null){
-            Double valorHoraValor = Double.valueOf(valorHora.getText().toString());
-            if (valorHoraValor < 10){
-                Toasty.error(this, this.getResources().getString(R.string.validaForm5), Toast.LENGTH_SHORT, true).show();
+            Double quantoPorMes = Double.valueOf(valorHora.getText().toString());
+            if (quantoPorMes < 100){
+                Toasty.error(this, this.getResources().getString(R.string.validaForm2), Toast.LENGTH_SHORT, true).show();
                 return false;
             }
             return true;
@@ -65,7 +61,7 @@ public class Projeto1Activity extends AppCompatActivityBase {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, NovoProjetoActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }

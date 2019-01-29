@@ -64,4 +64,12 @@ public class MeusProjetosActivity extends AppCompatActivityBase {
         listView.setAdapter(adapter);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

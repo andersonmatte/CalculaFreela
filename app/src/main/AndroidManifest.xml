@@ -17,31 +17,39 @@
             </intent-filter>
         </activity>
         <activity android:name=".atividade.HomeActivity" />
-        <activity
-            android:name=".atividade.SobreActivity"
-            android:parentActivityName=".atividade.HomeActivity" />
-        <activity
-            android:name=".atividade.ValorHoraActivity"
-            android:parentActivityName=".atividade.HomeActivity" />
-        <activity
-            android:name=".atividade.MeusProjetosActivity"
-            android:parentActivityName=".atividade.HomeActivity" />
+        <activity android:name=".atividade.SobreActivity" />
+        <activity android:name=".atividade.ValorHoraActivity" />
+        <activity android:name=".atividade.MeusProjetosActivity" />
         <activity
             android:name=".atividade.projeto.NovoProjetoActivity"
-            android:label="@string/meusProjetos"
-            android:parentActivityName=".atividade.MeusProjetosActivity" />
+            android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.projeto.Projeto1Activity"
-            android:parentActivityName=".atividade.MeusProjetosActivity" />
+            android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.projeto.Projeto2Activity"
-            android:parentActivityName=".atividade.projeto.Projeto1Activity" />
+            android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.projeto.Projeto3Activity"
-            android:parentActivityName=".atividade.projeto.Projeto2Activity" />
+            android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.projeto.Projeto4Activity"
-            android:parentActivityName=".atividade.projeto.Projeto3Activity" />
+            android:label="@string/meusProjetos" />
+        <activity
+            android:name=".atividade.valorHora.ValorHora1Activity"
+            android:label="@string/valorHora" />
+        <activity
+            android:name=".atividade.valorHora.ValorHora2Activity"
+            android:label="@string/valorHora" />
+        <activity
+            android:name=".atividade.valorHora.ValorHora3Activity"
+            android:label="@string/valorHora" />
+        <activity
+            android:name=".atividade.valorHora.ValorHora4Activity"
+            android:label="@string/valorHora" />
+        <activity
+            android:name=".atividade.valorHora.ValorHora5Activity"
+            android:label="@string/valorHora" />
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import br.com.andersonmatte.calculafreela.R;
+import br.com.andersonmatte.calculafreela.atividade.valorHora.ValorHora1Activity;
 import br.com.andersonmatte.calculafreela.base.AppCompatActivityBase;
 
 public class HomeActivity extends AppCompatActivityBase implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -28,7 +29,7 @@ public class HomeActivity extends AppCompatActivityBase implements BottomNavigat
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_valorHora: {
-                Intent intent = new Intent(this, ValorHoraActivity.class);
+                Intent intent = new Intent(this, ValorHora1Activity.class);
                 startActivity(intent);
                 finish();
                 break;

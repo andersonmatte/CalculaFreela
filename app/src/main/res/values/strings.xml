@@ -36,11 +36,26 @@
     <string name="projeto_3">horas diárias</string>
     <string name="projeto_4">Valor hora</string>
     <string name="projeto_5">Total:R$</string>
+    <string name="projeto_6">R$</string>
+
+    <!-- Sobre-->
+    <string name="sobre_1">
+    Esta é uma versão lite do aplicativo.
+    Queremos que você deguste o que estamos preparando. Acompanhe a nossa página e fique por dentro das novidades.</string>
+    <string name="sobre_2">Acesse o nosso Facebook
+    </string>
 
     <string name="btn_back">Back</string>
 
     <string name="toque">Toque para editar</string>
 
     <string name="erroValidaForm">Preencha o campo acima para prosseguir.</string>
+
+    <string name="validaForm1">Oops...Preencha o Campo!</string>
+    <string name="validaForm2">O campo precisa receber um valor maior que R$100.</string>
+    <string name="validaForm3">Você não pode trabalhar mais que 7 dias em uma semana.</string>
+    <string name="validaForm4">Você não pode trabalhar mais que 23 horas por dia.</string>
+    <string name="validaForm5">O campo precisa receber um valor maior que R$10.</string>
+    <string name="validaForm6">Desculpe, não posso calular um projeto de mais de 1 ano.</string>
 
 </resources>

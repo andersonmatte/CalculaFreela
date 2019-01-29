@@ -10,6 +10,7 @@ import android.widget.Toast;
 import br.com.andersonmatte.calculafreela.R;
 import br.com.andersonmatte.calculafreela.base.AppCompatActivityBase;
 import br.com.andersonmatte.calculafreela.entidade.Projeto;
+import es.dmoral.toasty.Toasty;
 
 public class Projeto3Activity extends AppCompatActivityBase {
 
@@ -26,12 +27,12 @@ public class Projeto3Activity extends AppCompatActivityBase {
             this.projetoRecebido = (Projeto) bundle.getSerializable("resultado");
         }
         diasProjeto = (EditText) findViewById(R.id.diasProjeto);
-        Button botaoDiasProjeto = (Button) findViewById(R.id.botaoDiasProjeto);
+        Button botaoDiasProjeto = (Button) findViewById(R.id.botaoDiasProjetoProjeto);
         botaoDiasProjeto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validaForm()) {
-                    projetoRecebido.setDias (Long.parseLong(diasProjeto.getText().toString()));
+                    projetoRecebido.setDias(Long.parseLong(diasProjeto.getText().toString()));
                     //prepara o objeto para passar para a próxima activity.
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("resultado", projetoRecebido);
@@ -44,14 +45,29 @@ public class Projeto3Activity extends AppCompatActivityBase {
         });
     }
 
-    //Valida se o nome do projeto foi preenchido.
+    //Valida se o nome do valorHora foi preenchido.
     private Boolean validaForm() {
         if (diasProjeto.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), getResources().getString(R.string.erroValidaForm), Toast.LENGTH_SHORT).show();
+            Toasty.warning(this, this.getResources().getString(R.string.validaForm1), Toast.LENGTH_SHORT, true).show();
             return false;
+        } else if (diasProjeto.getText().toString() != null){
+            Long diasProjetoValor = Long.parseLong(diasProjeto.getText().toString());
+            if (diasProjetoValor > 365){
+                Toasty.error(this, this.getResources().getString(R.string.validaForm6), Toast.LENGTH_SHORT, true).show();
+                return false;
+            }
+            return true;
         } else {
             return true;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, Projeto2Activity.class);
+        startActivity(intent);
+        finish();
     }
 
 }
