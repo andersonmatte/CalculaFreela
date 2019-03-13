@@ -41,13 +41,13 @@ public class ValorHora1Activity extends AppCompatActivity {
         });
     }
 
-    //Valida se o nome do valorHora foi preenchido.
+    //Valida se o valorHora foi preenchido.
     private Boolean validaForm() {
         if (valorHora.getText().toString().isEmpty()) {
             Toasty.warning(this, this.getResources().getString(R.string.validaForm1), Toast.LENGTH_SHORT, true).show();
             return false;
         } else if (valorHora.getText().toString() != null){
-            Double quantoPorMes = Double.valueOf(valorHora.getText().toString());
+            Double quantoPorMes = Double.valueOf(valorHora.getText().toString().replaceAll("[$,.]", ""));
             if (quantoPorMes < 100){
                 Toasty.error(this, this.getResources().getString(R.string.validaForm2), Toast.LENGTH_SHORT, true).show();
                 return false;
@@ -63,7 +63,7 @@ public class ValorHora1Activity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
 }

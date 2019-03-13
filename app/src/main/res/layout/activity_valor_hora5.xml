@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:text="@string/pergunta_2"
         android:textColor="#FFFFFF"
+        android:textAlignment="center"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/botaoReiniciar"

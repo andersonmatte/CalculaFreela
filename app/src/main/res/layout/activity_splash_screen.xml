@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/colorPrimary"
+    android:elevation="2dp"
     tools:context="br.com.andersonmatte.calculafreela.atividade.SplashScreenActivity">
 
     <ImageView
-        android:id="@+id/imagemGato"
+        android:id="@+id/imagemLogoCalculaFreela"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -35,13 +36,13 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/app_name"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#FFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagemGato"
+        app:layout_constraintTop_toBottomOf="@+id/imagemLogoCalculaFreela"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

@@ -15,7 +15,7 @@ import es.dmoral.toasty.Toasty;
 public class Projeto2Activity extends AppCompatActivityBase {
 
     private Projeto projetoRecebido;
-    private EditText cargaHoraria;
+    private EditText valorHora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +26,13 @@ public class Projeto2Activity extends AppCompatActivityBase {
         if (bundle != null) {
             this.projetoRecebido = (Projeto) bundle.getSerializable("resultado");
         }
-        cargaHoraria = (EditText) findViewById(R.id.cargaHoraria);
-        Button botaoCargaHoraria = (Button) findViewById(R.id.botaoCargaHorariaProjeto);
-        botaoCargaHoraria.setOnClickListener(new View.OnClickListener() {
+        valorHora = (EditText) findViewById(R.id.valorHora);
+        Button botaoValorHora = (Button) findViewById(R.id.botaoValorHoraProjeto);
+        botaoValorHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validaForm()) {
-                    projetoRecebido.setCargaHoraria(Long.parseLong(cargaHoraria.getText().toString()));
+                    projetoRecebido.setValorHora(Double.parseDouble(valorHora.getText().toString()));
                     //prepara o objeto para passar para a próxima activity.
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("resultado", projetoRecebido);
@@ -45,15 +45,15 @@ public class Projeto2Activity extends AppCompatActivityBase {
         });
     }
 
-    //Valida se o nome do valorHora foi preenchido.
+    //Valida se o valorHora foi preenchido.
     private Boolean validaForm() {
-        if (cargaHoraria.getText().toString().isEmpty()) {
+        if (valorHora.getText().toString().isEmpty()) {
             Toasty.warning(this, this.getResources().getString(R.string.validaForm1), Toast.LENGTH_SHORT, true).show();
             return false;
-        } else if (cargaHoraria.getText().toString() != null){
-            Long cargaHorariaValor = Long.parseLong(cargaHoraria.getText().toString());
-            if (cargaHorariaValor > 23){
-                Toasty.error(this, this.getResources().getString(R.string.validaForm4), Toast.LENGTH_SHORT, true).show();
+        } else if (valorHora.getText().toString() != null){
+            Double valorHoraValor = Double.valueOf(valorHora.getText().toString().replaceAll("[$,.]", ""));
+            if (valorHoraValor < 10){
+                Toasty.error(this, this.getResources().getString(R.string.validaForm5), Toast.LENGTH_SHORT, true).show();
                 return false;
             }
             return true;
@@ -67,7 +67,7 @@ public class Projeto2Activity extends AppCompatActivityBase {
         super.onBackPressed();
         Intent intent = new Intent(this, Projeto1Activity.class);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
 }

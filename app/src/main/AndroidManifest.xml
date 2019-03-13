@@ -18,11 +18,7 @@
         </activity>
         <activity android:name=".atividade.HomeActivity" />
         <activity android:name=".atividade.SobreActivity" />
-        <activity android:name=".atividade.ValorHoraActivity" />
         <activity android:name=".atividade.MeusProjetosActivity" />
-        <activity
-            android:name=".atividade.projeto.NovoProjetoActivity"
-            android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.projeto.Projeto1Activity"
             android:label="@string/meusProjetos" />
@@ -34,6 +30,9 @@
             android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.projeto.Projeto4Activity"
+            android:label="@string/meusProjetos" />
+        <activity
+            android:name=".atividade.projeto.Projeto5Activity"
             android:label="@string/meusProjetos" />
         <activity
             android:name=".atividade.valorHora.ValorHora1Activity"

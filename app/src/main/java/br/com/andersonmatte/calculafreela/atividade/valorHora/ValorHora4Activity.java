@@ -60,7 +60,7 @@ public class ValorHora4Activity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, ValorHora3Activity.class);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
 }

@@ -58,4 +58,12 @@
     <string name="validaForm5">O campo precisa receber um valor maior que R$10.</string>
     <string name="validaForm6">Desculpe, não posso calular um projeto de mais de 1 ano.</string>
 
+    <!-- itens Long press-->
+    <string name="apagar">Apagar projeto?</string>
+    <string name="apagar_projeto">Deseja mesmo apagar o projeto da sua lista?</string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
+    <string name="nao_salvar">Legal! Continue navegando em seus projetos.</string>
+    <string name="registro_deletado">O projeto foi removido da sua lista!.</string>
+
 </resources>

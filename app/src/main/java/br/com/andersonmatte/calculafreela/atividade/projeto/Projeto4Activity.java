@@ -4,20 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-
-import java.text.NumberFormat;
-import java.util.Locale;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import br.com.andersonmatte.calculafreela.R;
-import br.com.andersonmatte.calculafreela.atividade.MeusProjetosActivity;
 import br.com.andersonmatte.calculafreela.base.AppCompatActivityBase;
 import br.com.andersonmatte.calculafreela.entidade.Projeto;
+import es.dmoral.toasty.Toasty;
 
 public class Projeto4Activity extends AppCompatActivityBase {
 
     private Projeto projetoRecebido;
-    private TextView valorEstimado;
+    private EditText diasProjeto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +26,40 @@ public class Projeto4Activity extends AppCompatActivityBase {
         if (bundle != null) {
             this.projetoRecebido = (Projeto) bundle.getSerializable("resultado");
         }
-        Double valorTotalProjeto = this.calculaValorProjeto();
-        Locale ptBr = new Locale("pt", "BR");
-        String valorProjetoString = NumberFormat.getCurrencyInstance(ptBr).format(valorTotalProjeto);
-        valorEstimado = (TextView) findViewById(R.id.valorEstimado);
-        valorEstimado.setText(valorProjetoString);
-        this.projetoRecebido.setTotal(valorTotalProjeto);
-        Button botaoSalvarProjeto = (Button) findViewById(R.id.botaoSalvarProjetoProjeto);
-        botaoSalvarProjeto.setOnClickListener(new View.OnClickListener() {
+        diasProjeto = (EditText) findViewById(R.id.diasProjeto);
+        Button botaoDiasProjeto = (Button) findViewById(R.id.botaoDiasProjetoProjeto);
+        botaoDiasProjeto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                salvar();
+                if (validaForm()) {
+                    projetoRecebido.setDias(Long.parseLong(diasProjeto.getText().toString()));
+                    //prepara o objeto para passar para a próxima activity.
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("resultado", projetoRecebido);
+                    //Chama a próxima Activity já com o objeto populado.
+                    Intent intentPerfil = new Intent(Projeto4Activity.this, Projeto5Activity.class);
+                    intentPerfil.putExtra("projeto", bundle);
+                    startActivity(intentPerfil);
+                }
             }
         });
     }
 
-    //Retorna o valor do projeto.
-    public Double calculaValorProjeto(){
-        return this.projetoRecebido.getValorHora() * this.projetoRecebido.getCargaHoraria() * this.projetoRecebido.getDias();
-    }
-
-    //Salva o objeto no Banco,
-    public void salvar() {
-        super.realm.beginTransaction();
-        super.realm.insertOrUpdate(this.projetoRecebido);
-        super.realm.commitTransaction();
-        //Volta para a Lista de projetos.
-        Intent intent = new Intent(Projeto4Activity.this, MeusProjetosActivity.class);
-        startActivity(intent);
-        finish();
+    //Valida se o nome do valorHora foi preenchido.
+    private Boolean validaForm() {
+        if (diasProjeto.getText().toString().isEmpty()) {
+            Toasty.warning(this, this.getResources().getString(R.string.validaForm1), Toast.LENGTH_SHORT, true).show();
+            return false;
+        } else if (diasProjeto.getText().toString() != null){
+            Long diasProjetoValor = Long.parseLong(diasProjeto.getText().toString());
+            if (diasProjetoValor > 365){
+                Toasty.error(this, this.getResources().getString(R.string.validaForm6), Toast.LENGTH_SHORT, true).show();
+                return false;
+            }
+            return true;
+        } else {
+            return true;
+        }
     }
 
     @Override
@@ -64,7 +67,7 @@ public class Projeto4Activity extends AppCompatActivityBase {
         super.onBackPressed();
         Intent intent = new Intent(this, Projeto3Activity.class);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
 }

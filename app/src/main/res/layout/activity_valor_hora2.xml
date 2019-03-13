@@ -36,6 +36,7 @@
         android:hint="@string/toque"
         android:inputType="number"
         android:textColor="#FFFFFF"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

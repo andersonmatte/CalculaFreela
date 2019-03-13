@@ -32,7 +32,7 @@ public class SobreActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-        finish();
+        this.finish();
     }
 
 }

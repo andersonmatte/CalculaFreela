@@ -5,8 +5,8 @@
     tools:context=".atividade.MeusProjetosActivity">
 
     <item
-        android:id="@+id/search_menu"
-        android:title="teste"
+        android:id="@+id/adicionar"
+        android:title="Adicionar"
         app:showAsAction="always"
         android:icon="@drawable/baseline_add_white_18dp" />
 

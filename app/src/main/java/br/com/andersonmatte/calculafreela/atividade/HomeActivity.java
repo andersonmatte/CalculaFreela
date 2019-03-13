@@ -1,11 +1,10 @@
 package br.com.andersonmatte.calculafreela.atividade;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import br.com.andersonmatte.calculafreela.R;
 import br.com.andersonmatte.calculafreela.atividade.valorHora.ValorHora1Activity;
@@ -48,6 +47,14 @@ public class HomeActivity extends AppCompatActivityBase implements BottomNavigat
             }
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 
 }
