@@ -20,6 +20,8 @@ public class Projeto1Activity extends AppCompatActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projeto1);
+        //Remove APP Title Bar.
+        getSupportActionBar().hide();
         nomeProjeto = (EditText) findViewById(R.id.nomeProjeto);
         Button botaoNomeProjeto = (Button) findViewById(R.id.botaoNomeProjeto);
         botaoNomeProjeto.setOnClickListener(new View.OnClickListener() {

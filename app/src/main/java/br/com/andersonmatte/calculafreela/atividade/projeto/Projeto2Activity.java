@@ -21,6 +21,8 @@ public class Projeto2Activity extends AppCompatActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projeto2);
+        //Remove APP Title Bar.
+        getSupportActionBar().hide();
         //Recebe os dados passados na Intent da Classe anterior por mecanismo de Bundle.
         Bundle bundle = getIntent().getBundleExtra("projeto");
         if (bundle != null) {

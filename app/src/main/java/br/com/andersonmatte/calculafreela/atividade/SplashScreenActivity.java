@@ -13,6 +13,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        getSupportActionBar().hide();
         //Controla o tempo de exibição da Splash Screen.
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {

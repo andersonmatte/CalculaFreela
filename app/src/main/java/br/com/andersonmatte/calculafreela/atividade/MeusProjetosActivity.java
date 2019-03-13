@@ -103,7 +103,7 @@ public class MeusProjetosActivity extends AppCompatActivityBase {
             Projeto projeto = this.listaProjeto.get(posicao);
             projeto.deleteFromRealm();
             super.realm.commitTransaction();
-            Toasty.warning(this, getResources().getString(R.string.registro_deletado), Toast.LENGTH_SHORT, true).show();
+            Toasty.success(this, getResources().getString(R.string.registro_deletado), Toast.LENGTH_SHORT, true).show();
             //reseleciona
             this.buscaProjetos();
         }

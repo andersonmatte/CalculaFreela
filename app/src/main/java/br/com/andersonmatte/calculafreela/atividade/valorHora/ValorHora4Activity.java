@@ -21,6 +21,8 @@ public class ValorHora4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valor_hora4);
+        //Remove APP Title Bar.
+        getSupportActionBar().hide();
         //Recebe os dados passados na Intent da Classe anterior por mecanismo de Bundle.
         Bundle bundle = getIntent().getBundleExtra("valorHora");
         if (bundle != null) {

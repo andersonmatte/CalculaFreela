@@ -22,6 +22,8 @@ public class ValorHora1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valor_hora1);
         valorHora = (EditText) findViewById(R.id.valorHora);
+        //Remove APP Title Bar.
+        getSupportActionBar().hide();
         Button botaoValorHora = (Button) findViewById(R.id.botaoValorHora);
         botaoValorHora.setOnClickListener(new View.OnClickListener() {
             @Override
