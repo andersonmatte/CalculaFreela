@@ -28,7 +28,7 @@
     <string name="pergunta_7">Qual seu valor/hora?</string>
     <string name="pergunta_8">Carga Horária/dia</string>
     <string name="pergunta_9">Quantos dias de projeto?</string>
-    <string name="pergunta_10">Valor esimado do projeto</string>
+    <string name="pergunta_10">Valor estimado do projeto</string>
 
     <!-- Projeto-->
     <string name="projeto_1">Nome do projeto</string>
