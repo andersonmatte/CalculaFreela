@@ -2,7 +2,6 @@ package br.com.andersonmatte.calculafreela.atividade.valorHora;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,10 +9,11 @@ import android.widget.Toast;
 
 import br.com.andersonmatte.calculafreela.R;
 import br.com.andersonmatte.calculafreela.atividade.HomeActivity;
+import br.com.andersonmatte.calculafreela.base.AppCompatActivityBase;
 import br.com.andersonmatte.calculafreela.entidade.ValorHora;
 import es.dmoral.toasty.Toasty;
 
-public class ValorHora1Activity extends AppCompatActivity {
+public class ValorHora1Activity extends AppCompatActivityBase {
 
     private EditText valorHora;
 
